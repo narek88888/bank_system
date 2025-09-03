@@ -4,6 +4,8 @@ DEBIT , CREDIT
 
  */
 
-enum BankAccountType{
+public enum BankAccountType{
+    DEBIT,
+    CREDIT;
 
 }

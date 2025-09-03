@@ -102,12 +102,17 @@ public class CardAccount extends CardTransaction {
         CardAccount account1 = new CardAccount("5555555555555555", "478", "2028", "Acba", 5000, "Active", "USD");
         CardAccount account2 = new CardAccount("5555555555555557", "479", "2027", "Ameria", 1000, "Active", "USD");
 
-        CardTransaction cardTransaction = new CardTransaction();
 
-        account1.deposit(account1, 5000);
+
+
         System.out.println(account1.getBalance());
+        System.out.println(account2.getBalance());
 
-        account1․transfer(account1, account2, 2000);
+
+       // account1.deposit(account1, 5000);
+
+
+        account1.transfer(account1, account2, 2000);
 
         System.out.println(account1.getBalance());
         System.out.println(account2.getBalance());

@@ -12,12 +12,17 @@ public abstract class BankAccount implements Transaction {
     public long balance;
     private String currency;
     private String bankAccountType;
+    private String status;
 
-    public BankAccount(String accountNumber, long balance, String currency, String bankAccountType  ){
+
+    public BankAccount(String accountNumber, long balance, String currency, String bankAccountType, String status  ){
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.currency = currency;
         this.bankAccountType = bankAccountType;
+        this.status = status;
+
+
 
     }
 
@@ -77,7 +82,13 @@ public abstract class BankAccount implements Transaction {
 
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
 
 class B extends BankAccount{

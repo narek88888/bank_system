@@ -1,5 +1,8 @@
 package Transactions;
+
+import Models.BankAccount;
 import Models.CardAccount;
+
 /*
 Create CardTransaction class, should include methods:
 Deposit
@@ -16,12 +19,11 @@ BlockCard (change card status)
 
  */
 
-public class CardTransaction {
+public abstract class CardTransaction implements Transaction {
+    long newBalance;
+    public void deposit2(CardAccount account, long amount){
 
-    
 
-    public void deposit(CardAccount account, long amount){
-         long newBalance = 0;
          if (account.getCardStatus().equals("Blocked")){
              System.out.println("you can't deposit, card is blocked");
 
@@ -33,8 +35,8 @@ public class CardTransaction {
      }
 
      public void withdraw(CardAccount account, long amount){
-         long newBalance = 0;
-         if(account.getCardStatus() == "Blocked"){
+
+         if(account.getCardStatus().equals("Blocked")){
              System.out.println("you can't withdraw, card is blocked");
          }
          else if(amount <= account.getBalance()){
@@ -48,7 +50,7 @@ public class CardTransaction {
              System.out.println("you can't transfer, card is blocked");
          } else if (amount > 0 && amount <= fromAccount.getBalance()) {
              withdraw(fromAccount, amount);
-             deposit(toAccount, amount);
+             deposit2(toAccount, amount);
          }
 
 
