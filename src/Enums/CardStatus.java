@@ -1,8 +1,4 @@
-package Enums;/*
-Define CardStatus  enum with values:
-ACTIVE, CLOSED , BLOCKED
-
- */
+package Enums;
 
 enum CardStatus{
     ACTIVE,

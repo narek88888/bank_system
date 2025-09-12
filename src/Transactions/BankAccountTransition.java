@@ -2,17 +2,7 @@ package Transactions;
 import Enums.*;
 
 
-/*
-3. Create BankAccountTransaction class, should include methods:
-Deposit
-Note : You can add money if debit  bank account
 
-Withdraw
-Note : You can take money if credit  bank account or there is not enough balance
-
-Transfer
-Note :  Check that money go from debit to credit account  and there is no enough balance for take
- */
 
 import Models.BankAccount;
 

@@ -1,8 +1,5 @@
 package Models;
-/*
-Create a CardHolder  class for bank holders.
-passport number , full name ,  address , card list  , bank account
- */
+
 
 public class CardHolder {
     private String passportNumber;

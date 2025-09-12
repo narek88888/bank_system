@@ -1,9 +1,5 @@
 package Models;
-/*
- Create a BankAccount  class for bank accounts.
-account number // Note : must be 16 digits  , balance , currency , bank account type
 
- */
 
 import Transactions.Transaction;
 

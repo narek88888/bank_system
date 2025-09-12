@@ -1,9 +1,5 @@
 package Models;
-/*
-2. Create an Account class for accounts .
 
-     account number  // Note : must be 16 digits   ,  currency ,   balance
- */
 
 public class Account {
      private String accountNumber;

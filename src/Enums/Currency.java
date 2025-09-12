@@ -1,9 +1,5 @@
 package Enums;
-/*
-Define Currency  enum with values:
-AMD (interest) , USD  (interest) , RUB (interest)
 
- */
 
 enum Currency{
     AMD(11),

@@ -3,21 +3,7 @@ package Transactions;
 import Models.BankAccount;
 import Models.CardAccount;
 
-/*
-Create CardTransaction class, should include methods:
-Deposit
-Note : You cannot add money if card is blocked
 
-Withdraw
-Note :   You can take money if card is blocked or there is not enough balance
-
-Transfer
-Note :  Check that cards is not blocked  and there is no enough balance for take
-
-BlockCard (change card status)
-
-
- */
 
 public abstract class CardTransaction implements Transaction {
     long newBalance;

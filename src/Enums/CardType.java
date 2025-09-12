@@ -1,8 +1,4 @@
-package Enums;/*
-Define CardType  enum with values:
-VISA , MASTERCARD , AMERICAN_EXPRESS
-
- */
+package Enums;
 
 enum CardType{
     VISA,

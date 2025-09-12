@@ -1,10 +1,7 @@
 package Models;
 import java.util.ArrayList;
 
-/*
-Create a Bank class for banks.
-Bank name , address , cardholder list  ,
- */
+
 
 public class Bank {
     public String bankName;

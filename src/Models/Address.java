@@ -1,14 +1,5 @@
 package Models;
 
-/*
-
-1. Create an Address class to represent an address.
-
-       country  ,  region , city,   street,  house
-
-       It should override the toString() method.
-
- */
 
 public class Address {
 

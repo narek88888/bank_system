@@ -1,12 +1,5 @@
 package Models;
 
-/*
-
-3. Create a CardAccount  class for bank cards.
-
- account number // Note : must be 16 digits   ,  cvv    // Note : must be 3 digits
-expiration date, card type, balance, card status , currency
- */
 
 import Transactions.CardTransaction;
 
