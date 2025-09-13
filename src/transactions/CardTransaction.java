@@ -1,7 +1,7 @@
-package Transactions;
+package transactions;
 
-import Models.BankAccount;
-import Models.CardAccount;
+import enums.CardStatus;
+import models.CardAccount;
 
 
 
@@ -10,7 +10,7 @@ public abstract class CardTransaction implements Transaction {
     public void deposit2(CardAccount account, long amount){
 
 
-         if (account.getCardStatus().equals("Blocked")){
+         if (account.getCardStatus().equals(CardStatus.BLOCKED)){
              System.out.println("you can't deposit, card is blocked");
 
          } else if ( amount > 0) {
@@ -22,7 +22,7 @@ public abstract class CardTransaction implements Transaction {
 
      public void withdraw(CardAccount account, long amount){
 
-         if(account.getCardStatus().equals("Blocked")){
+         if(account.getCardStatus().equals(CardStatus.BLOCKED)){
              System.out.println("you can't withdraw, card is blocked");
          }
          else if(amount <= account.getBalance()){
@@ -32,7 +32,7 @@ public abstract class CardTransaction implements Transaction {
      }
 
      public void transfer(CardAccount fromAccount, CardAccount toAccount, long amount){
-         if(fromAccount.getCardStatus().equals("Blocked") || toAccount.getCardStatus().equals("Blocked")){
+         if(fromAccount.getCardStatus().equals(CardStatus.BLOCKED)  || toAccount.getCardStatus().equals(CardStatus.BLOCKED) ){
              System.out.println("you can't transfer, card is blocked");
          } else if (amount > 0 && amount <= fromAccount.getBalance()) {
              withdraw(fromAccount, amount);

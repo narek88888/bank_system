@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 /*
 1. Create an Appointment class

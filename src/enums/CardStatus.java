@@ -1,6 +1,6 @@
-package Enums;
+package enums;
 
-enum CardStatus{
+public enum CardStatus{
     ACTIVE,
     CLOSED,
     BLOCKED;

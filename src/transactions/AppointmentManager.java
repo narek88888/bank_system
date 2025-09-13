@@ -1,4 +1,4 @@
-package Transactions;
+package transactions;
 
 /*
 1.  Create an AppointmentManager.
@@ -18,7 +18,7 @@ Try to implement
 5. Collection apis
  */
 
-import Models.Appointment;
+import models.Appointment;
 
 import java.util.ArrayList;
 
@@ -34,14 +34,23 @@ public class AppointmentManager {
         return appointments ;
     }
 
-    public Appointment getNextAppointment(){
+    public void getNextAppointment(){
         int highestPriorityIndex = 0;
         int highestPriority = appointments.get(0).getPriority();
         for (int i = 1; i < appointments.size() ; i++) {
             if(highestPriority > appointments.get(i).getPriority()){
                 highestPriority = appointments.get(i).getPriority();
+                highestPriorityIndex = i;
             }
         }
+        System.out.println(highestPriority);
+        appointments.remove(highestPriorityIndex);
+
+
+    }
+    public void scheduleAppointment(Appointment appointment){
+        appointments.add(appointment);
+        System.out.println("added" + appointment);
     }
 
 

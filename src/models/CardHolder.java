@@ -1,14 +1,16 @@
-package Models;
+package models;
 
+
+import java.util.ArrayList;
 
 public class CardHolder {
     private String passportNumber;
     private String fullName;
     private String address;
-    private String cardList;
+    private ArrayList<String> cardList;
     private String bankAccount;
 
-    public CardHolder(String passportNumber,String fullName, String address, String cardList, String bankAccount ){
+    public CardHolder(String passportNumber,String fullName, String address, ArrayList<String> cardList, String bankAccount ){
         this.passportNumber = passportNumber;
         this.fullName = fullName;
         this.address = address;
@@ -33,11 +35,11 @@ public class CardHolder {
         this.bankAccount = bankAccount;
     }
 
-    public String getCardList() {
+    public ArrayList<String> getCardList() {
         return cardList;
     }
 
-    public void setCardList(String cardList) {
+    public void setCardList(ArrayList<String> cardList) {
         this.cardList = cardList;
     }
 

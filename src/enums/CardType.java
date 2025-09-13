@@ -1,6 +1,6 @@
-package Enums;
+package enums;
 
-enum CardType{
+public enum CardType{
     VISA,
     MASTERCARD,
     AMERICAN_EXPRESS;

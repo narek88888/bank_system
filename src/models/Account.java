@@ -1,5 +1,7 @@
-package Models;
+package models;
 
+
+import exception.InsufficientFundsException;
 
 public class Account {
      private String accountNumber;
@@ -17,13 +19,17 @@ public class Account {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
+    public void setAccountNumber(String accountNumber) throws InsufficientFundsException {
 
-        if(accountNumber.length() == 16){
-            this.accountNumber = accountNumber;
+        if(accountNumber != null && accountNumber.length() == 16 ){
+            try{
+                Integer.parseInt(accountNumber);
+            } catch (NumberFormatException e) {
+                throw new NumberFormatException("account number must be number");
+            }
         }
         else {
-            System.out.println("account number must be 16 digits");
+            throw new InsufficientFundsException();
         }
 
     }

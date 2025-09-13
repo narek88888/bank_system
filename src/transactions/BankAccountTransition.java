@@ -1,14 +1,11 @@
-package Transactions;
-import Enums.*;
+package transactions;
 
 
+import enums.BankAccountType;
+import models.BankAccount;
 
-
-import Models.BankAccount;
-
-import static Enums.BankAccountType.CREDIT;
-import Models.BankAccount.*;
-import Models.CardAccount;
+import static enums.BankAccountType.CREDIT;
+import static enums.BankAccountType.DEBIT;
 
 public abstract class BankAccountTransition implements Transaction {
     long newBalance;
@@ -17,7 +14,7 @@ public abstract class BankAccountTransition implements Transaction {
     public void deposit1(BankAccount account, long amount) {
         if(amount <= 0){
             System.out.println("amount can't be more than the balance");
-        }else if(account.getStatus().equals("Debit")) {
+        }else if(account.getStatus().equals(DEBIT)) {
             newBalance = account.getBalance() + amount;
             account.setBalance(newBalance);        }
     }
@@ -26,7 +23,7 @@ public abstract class BankAccountTransition implements Transaction {
     public void withdraw1(BankAccount account, long amount) {
         if(amount > account.getBalance()){
             System.out.println("amount can't be more than the balance");
-        } else if (account.getStatus().equals("Credit")) {
+        } else if (account.getStatus().equals(CREDIT)) {
             newBalance = account.balance - amount;
             account.setBalance(newBalance);
         }
@@ -39,7 +36,7 @@ public abstract class BankAccountTransition implements Transaction {
         if(amount > fromAccount.getBalance()){
             System.out.println("amount can't be more than balance");
         }
-        if (fromAccount.getStatus().equals("Debit") && toAccount.getStatus().equals("Credit")) {
+        if (fromAccount.getStatus().equals(DEBIT) && toAccount.getStatus().equals(CREDIT)) {
             withdraw1(fromAccount, amount);
             deposit1(toAccount, amount);
         }else {
