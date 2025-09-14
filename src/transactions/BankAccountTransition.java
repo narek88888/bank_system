@@ -2,6 +2,7 @@ package transactions;
 
 
 import enums.BankAccountType;
+import exception.InsufficientFundsException;
 import models.BankAccount;
 
 import static enums.BankAccountType.CREDIT;
@@ -32,15 +33,18 @@ public abstract class BankAccountTransition implements Transaction {
     }
 
     @Override
-    public void transfer2(BankAccount fromAccount, BankAccount toAccount, long amount) {
-        if(amount > fromAccount.getBalance()){
-            System.out.println("amount can't be more than balance");
-        }
-        if (fromAccount.getStatus().equals(DEBIT) && toAccount.getStatus().equals(CREDIT)) {
-            withdraw1(fromAccount, amount);
-            deposit1(toAccount, amount);
-        }else {
-            System.out.println("Debit and Credit are required");
-        }
+    public void transfer1(BankAccount fromAccount, BankAccount toAccount, long amount) throws InsufficientFundsException {
+       if(fromAccount.getBalance() == 0 || amount > fromAccount.getBalance()){
+           throw new InsufficientFundsException();
+       }else if(amount < 0) {
+           System.out.println("amount must be greater than 0");
+           throw new IllegalArgumentException();
+       }else if (fromAccount.getStatus().equals(DEBIT) && toAccount.getStatus().equals(CREDIT)) {
+           withdraw1(fromAccount, amount);
+           deposit1(toAccount, amount);
+       }else{
+           System.out.println("your bank account must be debit and the receiver's account must be Credit");
+       }
+
     }
 }
