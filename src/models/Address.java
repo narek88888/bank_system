@@ -22,7 +22,13 @@ public class Address {
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        if(country == null || country.isEmpty()){
+
+            throw new IllegalArgumentException("it cannot be null or empty");
+        }
+        else {
+            this.country = country;
+        }
     }
 
     public String getRegion() {
@@ -30,7 +36,13 @@ public class Address {
     }
 
     public void setRegion(String region) {
-        this.region = region;
+        if(region == null || region.isEmpty()){
+
+            throw new IllegalArgumentException("it cannot be null or empty");
+        }
+        else {
+            this.region = region;
+        }
     }
 
     public String getCity() {
@@ -38,7 +50,12 @@ public class Address {
     }
 
     public void setCity(String city) {
-        this.city = city;
+        if(city == null || city.isEmpty()){
+
+            throw new IllegalArgumentException("it cannot be null or empty");
+        }else {
+            this.city = city;
+        }
     }
 
     public String getStreet() {
@@ -46,7 +63,12 @@ public class Address {
     }
 
     public void setStreet(String street) {
-        this.street = street;
+        if(street == null || street.isEmpty()){
+
+            throw new IllegalArgumentException("it cannot be null or empty");
+        }else {
+            this.street = street;
+        }
     }
 
     public String getHouse() {
@@ -54,7 +76,11 @@ public class Address {
     }
 
     public void setHouse(String house) {
-        this.house = house;
+        if(house == null || house.isEmpty()){
+            throw new IllegalArgumentException("it cannot be null or empty");
+        }else {
+            this.house = house;
+        }
     }
 
     @Override
@@ -62,8 +88,4 @@ public class Address {
         return country + " " + region + " " + city + " " + street + " " + house ;
     }
 
-    public static void main(String[] args) {
-        Address address = new Address("Armenia", " ", "Yerevan", "Amiryan", "8" );
-        System.out.println(address.toString());
-    }
 }

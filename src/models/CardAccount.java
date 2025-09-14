@@ -35,20 +35,22 @@ public class CardAccount extends CardTransaction {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber)  {
+    public void setAccountNumber(String accountNumber) {
 
-        if(accountNumber != null && accountNumber.length() == 16 ){
-            try{
-                Long.parseLong(accountNumber);
-                this.accountNumber = accountNumber;
-            } catch (NumberFormatException e) {
-                throw new NumberFormatException("account number must be numbers");
+
+            if (accountNumber == null || accountNumber.length() != 16) {
+                throw new IllegalArgumentException("account number must be 16 digits and must not be null");
             }
-        }
-        else {
-            throw new IllegalArgumentException("it must be 16 digits and must not be empty");
 
-        }
+            for (char i : accountNumber.toCharArray()) {
+                if (!Character.isDigit(i)) {
+                    throw new NumberFormatException("account number must be digits");
+                }
+            }
+
+            this.accountNumber = accountNumber;
+
+
 
     }
     public Currency getCurrency() {
@@ -56,7 +58,11 @@ public class CardAccount extends CardTransaction {
     }
 
     public void setCurrency(Currency currency) {
-        this.currency = currency;
+        if(currency == null){
+            throw new IllegalArgumentException("it must not be null");
+        }else {
+            this.currency = currency;
+        }
     }
 
     public long getBalance() {
@@ -64,12 +70,7 @@ public class CardAccount extends CardTransaction {
     }
 
     public void setBalance(long balance){
-        if(balance > 0){
-            this.balance = balance;
-        }
-        else {
-            throw new IllegalArgumentException("it must me greater than 0");
-        }
+        this.balance = balance;
 
     }
 
@@ -78,7 +79,12 @@ public class CardAccount extends CardTransaction {
     }
 
     public void setCardStatus(CardStatus cardStatus) {
-        this.cardStatus = cardStatus;
+        if(cardStatus == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else {
+            this.cardStatus = cardStatus;
+        }
     }
 
     public CardType getCardType() {
@@ -86,7 +92,11 @@ public class CardAccount extends CardTransaction {
     }
 
     public void setCardType(CardType cardType) {
-        this.cardType = cardType;
+        if(cardType == null){
+            throw new IllegalArgumentException("it must not be null");
+        }else {
+            this.cardType = cardType;
+        }
     }
 
     public String getCvv() {
@@ -94,15 +104,18 @@ public class CardAccount extends CardTransaction {
     }
 
     public void setCvv(String cvv) {
-        if(cvv != null && cvv.length() == 3 ){
-            try {
-                Integer.parseInt(cvv);
-                this.cvv = cvv;
-            } catch (NumberFormatException e1) {
-                throw new NumberFormatException("it must be number");
-            }
 
+        if(cvv == null || cvv.length() != 3){
+            throw new IllegalArgumentException("account number must be 16 digits and must not be null");
         }
+
+        for(char i: cvv.toCharArray()){
+            if (!Character.isDigit(i)){
+                throw new NumberFormatException("account number must be digits");
+            }
+        }
+
+        this.cvv = cvv;
     }
 
     public LocalDate getExpirationDate() {
@@ -110,7 +123,12 @@ public class CardAccount extends CardTransaction {
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
-        this.expirationDate = expirationDate;
+        if(expirationDate == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else {
+            this.expirationDate = expirationDate;
+        }
     }
 
 }

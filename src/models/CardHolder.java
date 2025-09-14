@@ -6,11 +6,11 @@ import java.util.ArrayList;
 public class CardHolder {
     private String passportNumber;
     private String fullName;
-    private String address;
+    private Address address;
     private ArrayList<String> cardList;
-    private String bankAccount;
+    private BankAccount bankAccount;
 
-    public CardHolder(String passportNumber,String fullName, String address, ArrayList<String> cardList, String bankAccount ){
+    public CardHolder(String passportNumber,String fullName, Address address, ArrayList<String> cardList, BankAccount bankAccount ){
         this.passportNumber = passportNumber;
         this.fullName = fullName;
         this.address = address;
@@ -19,20 +19,32 @@ public class CardHolder {
 
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(Address address) {
+        if(address == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else {
+            this.address = address;
+        }
+
     }
 
-    public String getBankAccount() {
+    public BankAccount getBankAccount() {
         return bankAccount;
     }
 
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
+    public void setBankAccount(BankAccount bankAccount) {
+        if(bankAccount == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else{
+            this.bankAccount = bankAccount;
+        }
+
     }
 
     public ArrayList<String> getCardList() {
@@ -40,7 +52,13 @@ public class CardHolder {
     }
 
     public void setCardList(ArrayList<String> cardList) {
-        this.cardList = cardList;
+        if(cardList == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else {
+            this.cardList = cardList;
+        }
+
     }
 
     public String getFullName() {
@@ -48,7 +66,13 @@ public class CardHolder {
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        if(fullName == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else {
+            this.fullName = fullName;
+        }
+
     }
 
     public String getPassportNumber() {
@@ -56,7 +80,13 @@ public class CardHolder {
     }
 
     public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
+        if(passportNumber == null){
+            throw new IllegalArgumentException("it must not be null");
+        }
+        else {
+            this.passportNumber = passportNumber;
+        }
+
     }
 
 }

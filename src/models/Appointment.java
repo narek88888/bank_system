@@ -8,14 +8,16 @@ package models;
  */
 
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Appointment {
    private String customerName;
-    private String preferredTime;
+    private LocalTime preferredTime;
     private ServiceType serviceType;
     private int priority;
 
-    public Appointment(String customerName, String preferredTime, ServiceType serviceType){
+    public Appointment(String customerName, LocalTime preferredTime, ServiceType serviceType){
         this.customerName = customerName;
         this.preferredTime = preferredTime;
         this.serviceType = serviceType;
@@ -26,15 +28,24 @@ public class Appointment {
     }
 
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        if(customerName == null || customerName.isEmpty()){
+            throw new IllegalArgumentException("it cannot be null or empty");
+        }else {
+            this.customerName = customerName;
+        }
+
     }
 
-    public String getPreferredTime() {
+    public LocalTime getPreferredTime() {
         return preferredTime;
     }
 
-    public void setPreferredTime(String preferredTime) {
-        this.preferredTime = preferredTime;
+    public void setPreferredTime(LocalTime preferredTime) {
+        if(preferredTime == null){
+            throw new IllegalArgumentException("it cannot be null");
+        }else {
+            this.preferredTime = preferredTime;
+        }
     }
 
     public ServiceType getServiceType() {
@@ -42,7 +53,11 @@ public class Appointment {
     }
 
     public void setServiceType(ServiceType serviceType) {
-        this.serviceType = serviceType;
+        if(serviceType == null){
+            throw new IllegalArgumentException();
+        }else {
+            this.serviceType = serviceType;
+        }
     }
 
     public int getPriority() {

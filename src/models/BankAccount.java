@@ -2,8 +2,8 @@ package models;
 
 
 import enums.BankAccountType;
-import enums.CardStatus;
-import transactions.BankAccountTransition;
+
+
 import transactions.Transaction;
 
 import java.util.Currency;
@@ -32,7 +32,11 @@ public abstract class BankAccount implements Transaction {
     }
 
     public void setCurrency(Currency currency) {
-        this.currency = currency;
+        if(currency == null){
+            throw new IllegalArgumentException("it cannot be null");
+        }else {
+            this.currency = currency;
+        }
     }
 
     public String getAccountNumber() {
@@ -40,24 +44,26 @@ public abstract class BankAccount implements Transaction {
     }
 
     public void setAccountNumber(String accountNumber) {
-        if (accountNumber.length() == 16) {
+            if(accountNumber == null || accountNumber.length() != 16){
+                throw new IllegalArgumentException("account number must be 16 digits and must not be null");
+            }
+
+            for(char i: accountNumber.toCharArray()){
+                if (!Character.isDigit(i)){
+                    throw new NumberFormatException("account number must be digits");
+                }
+            }
+
             this.accountNumber = accountNumber;
-        }else {
-            System.out.println("account number must be 16 digits");
-        }
     }
+
 
     public long getBalance() {
         return balance;
     }
 
     public void setBalance(long balance) {
-        if(balance > 0){
             this.balance = balance;
-        }
-        else {
-            throw new IllegalArgumentException("it must be greater than 0");
-        }
     }
 
     public String getBankAccountType() {
@@ -65,7 +71,11 @@ public abstract class BankAccount implements Transaction {
     }
 
     public void setBankAccountType(String bankAccountType) {
-        this.bankAccountType = bankAccountType;
+        if(bankAccountType == null){
+            throw new IllegalArgumentException("it cannot be null");
+        }else {
+            this.bankAccountType = bankAccountType;
+        }
     }
 
 
@@ -75,7 +85,11 @@ public abstract class BankAccount implements Transaction {
     }
 
     public void setStatus(BankAccountType status) {
-        this.status = status;
+        if(status == null){
+            throw new IllegalArgumentException("it cannot be null");
+        }else {
+            this.status = status;
+        }
     }
 }
 

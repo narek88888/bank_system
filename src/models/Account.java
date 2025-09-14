@@ -3,12 +3,14 @@ package models;
 
 import exception.InsufficientFundsException;
 
+import java.util.Currency;
+
 public class Account {
-     private String accountNumber;
-    private String currency;
+    private String accountNumber;
+    private Currency currency;
     private long balance;
 
-    public Account(String accountNumber, String currency, int balance){
+    public Account(String accountNumber, Currency currency, int balance){
         this.accountNumber = accountNumber;
         this.currency = currency;
         this.balance = balance;
@@ -19,26 +21,33 @@ public class Account {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) throws InsufficientFundsException {
+    public void setAccountNumber(String accountNumber) {
 
-        if(accountNumber != null && accountNumber.length() == 16 ){
-            try{
-                Integer.parseInt(accountNumber);
-            } catch (NumberFormatException e) {
-                throw new NumberFormatException("account number must be number");
+            if(accountNumber == null || accountNumber.length() != 16){
+                throw new IllegalArgumentException("account number must be 16 digits and must not be null");
             }
-        }
-        else {
-            throw new InsufficientFundsException();
-        }
+
+            for(char i: accountNumber.toCharArray()){
+                if (!Character.isDigit(i)){
+                    throw new NumberFormatException("account number must be digits");
+                }
+            }
+
+            this.accountNumber = accountNumber;
+
+
+
 
     }
 
-    public String getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(Currency currency) {
+        if(currency == null){
+            throw new IllegalArgumentException("it cannot be null");
+        }
         this.currency = currency;
     }
 
