@@ -7,14 +7,14 @@ import models.CardAccount;
 
 
 public abstract class CardTransaction implements Transaction {
-    long newBalance;
+
     public void deposit2(CardAccount account, long amount){
 
          if (account.getCardStatus().equals(CardStatus.BLOCKED)){
              System.out.println("you can't deposit, card is blocked");
 
          } else if ( amount > 0) {
-             newBalance = account.getBalance() + amount;
+             long newBalance = account.getBalance() + amount;
              account.setBalance(newBalance);
          }
          else {
@@ -33,7 +33,7 @@ public abstract class CardTransaction implements Transaction {
              System.out.println("it must be greater than 0");
          }
          else {
-             newBalance = newBalance - amount;
+            long newBalance = account.getBalance() - amount;
              account.setBalance(newBalance);
          }
     }
@@ -54,6 +54,8 @@ public abstract class CardTransaction implements Transaction {
          else {
              withdraw2(fromAccount, amount);
              deposit2(toAccount, amount);
+
+
          }
 
 

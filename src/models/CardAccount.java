@@ -7,7 +7,7 @@ import enums.CardType;
 import transactions.CardTransaction;
 
 import java.time.LocalDate;
-import java.util.Currency;
+import enums.Currency;
 
 public class CardAccount extends CardTransaction {
 

@@ -1,9 +1,9 @@
 package models;
 
 
-import exception.InsufficientFundsException;
 
-import java.util.Currency;
+
+import enums.Currency;
 
 public class Account {
     private String accountNumber;

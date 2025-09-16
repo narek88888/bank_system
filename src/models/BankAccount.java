@@ -6,22 +6,22 @@ import enums.BankAccountType;
 
 import transactions.Transaction;
 
-import java.util.Currency;
+import enums.Currency;
 
-public abstract class BankAccount implements Transaction {
+public class BankAccount  {
     private String accountNumber;
     public long balance;
     private Currency currency;
-    private String bankAccountType;
-    private BankAccountType status;
+    private BankAccountType bankAccountType;
 
 
-    public BankAccount(String accountNumber, long balance, Currency currency, String bankAccountType, BankAccountType status  ){
+
+    public BankAccount(String accountNumber, long balance, Currency currency, BankAccountType bankAccountType){
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.currency = currency;
         this.bankAccountType = bankAccountType;
-        this.status = status;
+
 
 
 
@@ -66,11 +66,11 @@ public abstract class BankAccount implements Transaction {
             this.balance = balance;
     }
 
-    public String getBankAccountType() {
+    public BankAccountType getBankAccountType() {
         return bankAccountType;
     }
 
-    public void setBankAccountType(String bankAccountType) {
+    public void setBankAccountType(BankAccountType bankAccountType) {
         if(bankAccountType == null){
             throw new IllegalArgumentException("it cannot be null");
         }else {
@@ -79,18 +79,6 @@ public abstract class BankAccount implements Transaction {
     }
 
 
-
-    public BankAccountType getStatus() {
-        return status;
-    }
-
-    public void setStatus(BankAccountType status) {
-        if(status == null){
-            throw new IllegalArgumentException("it cannot be null");
-        }else {
-            this.status = status;
-        }
-    }
 }
 
 

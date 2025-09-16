@@ -10,11 +10,11 @@ public class CardHolder {
     private ArrayList<String> cardList;
     private BankAccount bankAccount;
 
-    public CardHolder(String passportNumber,String fullName, Address address, ArrayList<String> cardList, BankAccount bankAccount ){
+    public CardHolder(String passportNumber,String fullName, Address address,  BankAccount bankAccount ){
         this.passportNumber = passportNumber;
         this.fullName = fullName;
         this.address = address;
-        this.cardList = cardList;
+
         this.bankAccount = bankAccount;
 
     }
@@ -66,8 +66,8 @@ public class CardHolder {
     }
 
     public void setFullName(String fullName) {
-        if(fullName == null){
-            throw new IllegalArgumentException("it must not be null");
+        if(fullName == null || fullName.isEmpty()){
+            throw new IllegalArgumentException("it must not be null or empty");
         }
         else {
             this.fullName = fullName;
@@ -89,4 +89,8 @@ public class CardHolder {
 
     }
 
+    @Override
+    public String toString() {
+        return
+    }
 }

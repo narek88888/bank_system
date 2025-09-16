@@ -1,7 +1,7 @@
 package enums;
 
 
-enum Currency{
+public enum Currency{
     AMD(11),
     USD(5),
     RUB(6);
