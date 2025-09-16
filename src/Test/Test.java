@@ -26,23 +26,29 @@ public class Test {
         Appointment appointment1 = new Appointment("Sargis", LocalTime.of(5,30),ServiceType.LOAN_CONSULTATION);
         Appointment appointment2 = new Appointment("John", LocalTime.of(5,40), ServiceType.ACCOUNT_OPENING);
 
-        ArrayList<CardHolder> cardHolders = new ArrayList<>();
+        ArrayList<CardHolder> cardHolderList = new ArrayList<>();
+
+        ArrayList<CardAccount> cardList1 = new ArrayList<>();
+        ArrayList<CardAccount> cardList2 = new ArrayList<>();
+
 
         BankAccount bankAccount1 = new BankAccount("3333333333333333", 50000, Currency.AMD, BankAccountType.DEBIT);
         BankAccount bankAccount2 = new BankAccount("5555555555555555", 10000, Currency.AMD, BankAccountType.CREDIT);
 
-        CardHolder cardHolder1 = new CardHolder("44", "Sargis", address1, bankAccount1);
-        CardHolder cardHolder2 = new CardHolder("99", "John", address2,bankAccount2 );
+        CardHolder cardHolder1 = new CardHolder("44", "Sargis", address1, bankAccount1, cardList1);
+        CardHolder cardHolder2 = new CardHolder("99", "John", address2, bankAccount2, cardList2 );
+
+    cardHolderList.add(cardHolder1);
+    cardHolderList.add(cardHolder2);
 
 
-        cardHolders.add(cardHolder1);
-        cardHolders.add(cardHolder2);
 
-        Bank bank = new Bank(cardHolders, "Bank of the Future",address3 );
+        Bank bank = new Bank(cardHolderList, "Bank of the Future",address3 );
 
         CardAccount cardAccount1 = new CardAccount("9999999999999999", "321", LocalDate.of(5, 1, 8), CardType.AMERICAN_EXPRESS, 50000, CardStatus.ACTIVE, Currency.AMD);
         CardAccount cardAccount2 = new CardAccount("1234567899987456", "578", LocalDate.of(4, 1, 14 ), CardType.VISA, 10000, CardStatus.ACTIVE, Currency.AMD);
-
+        cardList1.add(cardAccount1);
+        cardList2.add(cardAccount2);
 
 
         System.out.println(cardAccount1.getBalance());
@@ -52,6 +58,8 @@ public class Test {
         cardAccount2.withdraw2(cardAccount1, 1000);
         System.out.println(cardAccount1.getBalance());
         System.out.println(cardAccount2.getBalance());
+
+
 
 
 

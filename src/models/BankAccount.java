@@ -22,9 +22,6 @@ public class BankAccount  {
         this.currency = currency;
         this.bankAccountType = bankAccountType;
 
-
-
-
     }
 
     public Currency getCurrency() {

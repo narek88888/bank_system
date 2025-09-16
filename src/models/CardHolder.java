@@ -1,22 +1,24 @@
 package models;
 
 
+import enums.CardType;
+
 import java.util.ArrayList;
 
 public class CardHolder {
     private String passportNumber;
     private String fullName;
     private Address address;
-    private ArrayList<String> cardList;
+    private ArrayList<CardAccount> cardList;
     private BankAccount bankAccount;
 
-    public CardHolder(String passportNumber,String fullName, Address address,  BankAccount bankAccount ){
+    public CardHolder(String passportNumber,String fullName, Address address,  BankAccount bankAccount,  ArrayList<CardAccount> cardList ){
         this.passportNumber = passportNumber;
         this.fullName = fullName;
         this.address = address;
-
         this.bankAccount = bankAccount;
-
+        this.cardList = cardList;
+        
     }
 
     public Address getAddress() {
@@ -47,11 +49,11 @@ public class CardHolder {
 
     }
 
-    public ArrayList<String> getCardList() {
+    public ArrayList<CardAccount> getCardList() {
         return cardList;
     }
 
-    public void setCardList(ArrayList<String> cardList) {
+    public void setCardList(ArrayList<CardAccount> cardList) {
         if(cardList == null){
             throw new IllegalArgumentException("it must not be null");
         }
@@ -89,8 +91,5 @@ public class CardHolder {
 
     }
 
-    @Override
-    public String toString() {
-        return
-    }
+
 }
