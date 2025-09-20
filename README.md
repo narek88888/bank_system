@@ -29,7 +29,8 @@
   The system uses custom exceptions to handle errors in a precise way:  
   - `InsufficientFundsException` – thrown when the account balance is not enough for a withdrawal or transfer.  
   - `BankTransactionException` – a more general exception for handling invalid or unexpected banking operations.  
-
+- **Currency**
+- USD, AMD, RUB
 ---
 
 ## 🛠️ Technologies Used
