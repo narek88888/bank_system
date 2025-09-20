@@ -1,4 +1,4 @@
-![Bank of the Future Logo](https://github.com/user-attachments/assets/579bf6e7-ee6c-4416-b6c1-91bd98d65b5a)
+<img src="https://github.com/user-attachments/assets/579bf6e7-ee6c-4416-b6c1-91bd98d65b5a" alt="Bank of the Future Logo" width="300">
 
 
 
